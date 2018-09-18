@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MetroidMapCreator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="HAMMeRtroid" Height="566.75" Width="918.5">
+    <Grid Margin="0,0,0,0" Height="526" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="910" Background="Black">
+        <ToolBarTray HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="910" Background="#FF7E7E7E" Margin="5,-10,-5,0">
+            <ToolBar Margin="0,7,-905,-34">
+                <Menu>
+                    <MenuItem Header="File" Height="23" Width="40" VerticalAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="1,1,0,1" RenderTransformOrigin="0.5,0.5" Margin="0">
+                        <MenuItem Header="New"/>
+                        <MenuItem Name="OpenButton" Header="Open"/>
+                        <MenuItem Name="SaveButton" Header="Save"/>
+                    </MenuItem>
+                </Menu>
+            </ToolBar>
+        </ToolBarTray>
+        <DockPanel HorizontalAlignment="Left" Height="490" LastChildFill="False" Margin="5,30,0,0" VerticalAlignment="Top" Width="155" Background="#FF646464">
+            <Button Name="TileToolButton" Content="Draw Tiles" Width="155" Height="40" VerticalAlignment="Top" DockPanel.Dock="Top"/>
+
+            <DataGrid Name="TilesGrid"  DockPanel.Dock="Top" Height="225" Background="#FFA8A8A8" AutoGenerateColumns="False" RowBackground="#FF515151" HorizontalScrollBarVisibility="Disabled" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False"  >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="SizeToCells" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Image}" Width="150" Height="64"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Name="EraseTilesButton" Content="Erase Tiles" Width="155" Height="40" VerticalAlignment="Top" DockPanel.Dock="Top"/>
+            <Button x:Name="SelectTileButton" Content="Select Tile" Width="155" Height="40" VerticalAlignment="Top" DockPanel.Dock="Top"/>
+        </DockPanel>
+        <Grid HorizontalAlignment="Left" Height="470" Margin="165,45,0,0" VerticalAlignment="Top" Width="735">
+            <Canvas Name="WorldGrid" HorizontalAlignment="Left" Height="480" VerticalAlignment="Top" Width="735" Background="White" Margin="0,-5" />
+        </Grid>
+
     </Grid>
 </Window>
